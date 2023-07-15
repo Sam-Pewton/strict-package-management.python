@@ -5,7 +5,7 @@ import re
 from typing import Dict
 
 
-def parse_requirements(file_path: str = "../requirements.txt") -> Dict:
+def parse_requirements_txt(file_path: str = "../requirements.txt") -> Dict:
     """
     Parse a requriements.txt file.
 
@@ -27,4 +27,4 @@ def parse_requirements(file_path: str = "../requirements.txt") -> Dict:
 
 
 if __name__ == "__main__":
-    print(parse_requirements())
+    print(parse_requirements_txt())
