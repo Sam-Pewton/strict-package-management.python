@@ -1,0 +1,22 @@
+version: 2.1
+
+jobs:
+  test-python:
+    # Install dependencies and run tests
+    docker:
+      - image: cimg/python:3.8
+    steps:
+      - checkout
+      - python/install-packages
+      - python/install-packages:
+          args: pytest
+          pkg-manager: pip
+          pypi-cache: false
+      - run:
+          name: Run tests
+          command: pytest
+
+workflows:
+  build-and-test:
+    jobs:
+      - test-python
