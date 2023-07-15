@@ -12,6 +12,8 @@ def get_pypi_versions(package_name: str) -> List:
     """
     Get a list of all versions available for a package on PyPI
 
+    The latest version is indexed first in the list.
+
     :param package_name: the name of the package to search for
     :type package_name: str
 
@@ -23,7 +25,7 @@ def get_pypi_versions(package_name: str) -> List:
             headers={'Accept': 'application/json'}
         )
     versions = list(r.json()["releases"].keys())
-    versions = sorted(versions, key=lambda x: version.Version(x))
+    versions = sorted(versions, key=lambda x: version.Version(x), reverse=True)
     return versions
 
 
@@ -36,3 +38,5 @@ if __name__ == "__main__":
     print(get_pypi_versions("pydantic"))
     print(get_pypi_versions("numpy"))
     print(get_pypi_versions("pandas"))
+    print(get_pypi_versions("requests"))
+    print(get_pypi_versions("pytest"))
