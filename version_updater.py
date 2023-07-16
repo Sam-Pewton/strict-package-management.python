@@ -10,8 +10,8 @@ import src.get_latest_compatible as tl
 
 def main():
     current_versions = pcv.parse_requirements_txt()
-
     shutil.copy("./requirements.txt", "./requirements.bak")
+    
     for package in current_versions:
         src_versions = gs.get_pypi_versions(package)
 
