@@ -5,7 +5,7 @@ import re
 from typing import Dict
 
 
-def parse_requirements_txt(file_path: str = "../requirements.txt") -> Dict:
+def parse_requirements_txt(file_path: str = "./requirements.txt") -> Dict:
     """
     Parse a requriements.txt file.
 
