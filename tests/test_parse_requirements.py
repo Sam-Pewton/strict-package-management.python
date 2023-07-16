@@ -1,6 +1,7 @@
 """
 Unit tests for parsing current versions
 """
+import sys
 import unittest
 from src import parse_current_versions as pcv
 
