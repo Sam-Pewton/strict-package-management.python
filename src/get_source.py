@@ -22,7 +22,8 @@ def get_pypi_versions(package_name: str) -> List:
     """
     r = requests.get(
             f'https://pypi.org/pypi/{package_name}/json',
-            headers={'Accept': 'application/json'}
+            headers={'Accept': 'application/json'},
+            allow_redirects=False
         )
     versions = list(r.json()["releases"].keys())
     versions = sorted(versions, key=lambda x: version.Version(x), reverse=True)
